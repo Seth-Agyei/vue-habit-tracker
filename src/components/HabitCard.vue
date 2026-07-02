@@ -1,23 +1,29 @@
 <script setup>
-    defineProps(
-        {
-            habit: Object
-        }
-    )
-    const emit  = defineEmits("toggle")
+defineProps(
+    {
+    habit: Object
+    }
+);
+
+const emit = defineEmits("toggle");
 
 </script>
 
 <template>
 
-    <div>
+    <div class="habit-card">
+
         <h3>{{ habit.name }}</h3>
 
         <p>{{ habit.category }}</p>
 
-        <span :class="habit.priority">{{ habit.priority }}</span>
+        <span :class="habit.priority">
+            {{ habit.priority }}
+        </span>
 
-        <button @click="emit('toggle', habit.id)"
-        >{{ habit.completed ? 'completed' : 'Pending' }}</button>
+        <button @click="emit('toggle', habit.id)">
+            {{ habit.completed ? 'Completed' : 'Pending' }}
+        </button>
     </div>
+
 </template>
